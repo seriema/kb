@@ -1,5 +1,3 @@
-const practiceTime = 4000; // Milliseconds
-
 const data = {
     tecniques: {
         "cross": "yellow",
@@ -37,9 +35,12 @@ const data = {
     }
 };
 
+// CONFIG
+const practiceTimeNode = document.querySelector("#practice-time");
+const waitForUserNode = document.querySelector(".wait-for-user");
 
 // TEXT
-let textNode = document.querySelector("#current-combo");
+const textNode = document.querySelector("#current-combo");
 
 // SPEECH
 var synth = window.speechSynthesis;
@@ -51,21 +52,23 @@ const coachUser = combo => {
 
 
 // LOOP THE COMBO MOVES
-const nextCombo = (current, belt) => {
+const nextCombo = (current, belt, practiceTime) => {
         if (current >= data.combos[belt].length) {
             coachUser("WELL DONE!");
         } else {
             if (current < 0) {
                 coachUser("Get ready!");
+                setTimeout(nextCombo.bind(null, current + 1, belt, practiceTime), 3000);
             } else {
                 const combo = data.combos[belt][current];
                 coachUser(combo);
+                setTimeout(nextCombo.bind(null, current + 1, belt, practiceTime), practiceTime);
             }
-            setTimeout(nextCombo.bind(null, current + 1, belt), practiceTime);
         }
 }
 
 function startTraining(belt) {
-    nextCombo(-1, belt);
-    document.querySelector(".wait-for-user").style.display = "none";
+    const practiceTime = parseInt(practiceTimeNode.value, 10) * 1000;
+    nextCombo(-1, belt, practiceTime);
+    waitForUserNode.style.display = "none";
 }

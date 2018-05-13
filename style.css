@@ -16,6 +16,18 @@ body,
     text-align: center;
 }
 
+.form-input {
+    display: block;
+    font-size: 25pt;
+    padding: 20pt;
+}
+.form-input input {
+    font-size: 20pt;
+    width: 40pt;
+    text-align: center;
+    padding: 5pt;
+}
+
 .btn {
     background: white;
     border: black solid;
