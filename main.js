@@ -31,15 +31,16 @@ const coachUser = combo => {
 
 // LOOP THE COMBO MOVES
 const nextCombo = (current) => {
-    setTimeout(() => {
         if (current >= data.combos[belt].length) {
             coachUser("WELL DONE!");
         } else {
             const combo = data.combos[belt][current];
             coachUser(combo);
-            nextCombo(current +1)
+            setTimeout(nextCombo.bind(null, current +1), practiceTime);
         }
-    }, practiceTime);
 }
 
-nextCombo(0);
+function startTraining() {
+    nextCombo(0);
+    document.querySelector(".wait-for-user").style.display = "none";
+}

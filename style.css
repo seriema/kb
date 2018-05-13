@@ -9,7 +9,20 @@ body,
     align-items: center;
 }
 
+.wait-for-user,
 .current-combo {
     font-size: 80pt;
     margin: auto;
+}
+
+.wait-for-user {
+    text-align: center;
+}
+
+.btn {
+    background: white;
+    border: black solid;
+    border-radius: 5px;
+    padding: 20pt;
+    font-size: 45pt;
 }
