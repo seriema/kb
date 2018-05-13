@@ -1,7 +1,10 @@
 <!DOCTYPE html>
 <html lang="en-us">
     <head>
+        <meta charset="utf-8">
         <title>Kickboxing combo training</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="modern-normalize.min.css" />
         <link rel="stylesheet" href="style.css" />
     </head>
     <body>
@@ -10,7 +13,7 @@
                 <div>Ready to train kickboxing combos?</div>
                 <button class="btn" onclick="startTraining('yellow')">Yellow belt!</button>
                 <button class="btn" onclick="startTraining('orange')">Orange belt!</button>
-                <label class="form-input">Train each combo for how many seconds? <input type="number" id="practice-time" value="20" /></label>
+                <label class="form-input">Train each combo for how many seconds? <input type="tel" pattern="[0-9]*" novalidate id="practice-time" value="20" /></label>
             </div>
             <div class="current-combo" id="current-combo"></div>
         </section>

@@ -35,3 +35,23 @@ body,
     padding: 20pt;
     font-size: 45pt;
 }
+
+@media all and (max-width: 500px) {
+    .wait-for-user,
+    .current-combo {
+        font-size: 30pt;
+    }
+
+    .form-input {
+        font-size: 20pt;
+    }
+    .form-input input {
+        font-size: 17pt;
+        padding: 3pt;
+    }
+
+    .btn {
+        padding: 8pt;
+        font-size: 15pt;
+    }
+}
