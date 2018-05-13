@@ -46,7 +46,7 @@ const textNode = document.querySelector("#current-combo");
 var synth = window.speechSynthesis;
 
 const coachUser = combo => {
-    textNode.innerHTML = combo.split(", ").join("<br>");
+    textNode.innerHTML = combo.split(", ").map(technique => `<p>${technique}</p>`).join("");
     synth.speak(new SpeechSynthesisUtterance(combo));
 }
 
