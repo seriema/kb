@@ -43,15 +43,26 @@ const waitForUserNode = document.querySelector(".wait-for-user");
 const textNode = document.querySelector("#current-combo");
 
 // SPEECH
-var synth = window.speechSynthesis;
+const synth = window.speechSynthesis;
+const englishVoice = synth.getVoices().filter(voice => voice.lang.startsWith("en-") && voice.localService)[0]; // The first English voice that runs locally is enough.
 
+// MAIN LOGIC
+
+// Update screen and speak
 const coachUser = combo => {
-    textNode.innerHTML = combo.split(", ").map(technique => `<p>${technique}</p>`).join("");
-    synth.speak(new SpeechSynthesisUtterance(combo));
+    // Break up into paragraphs for better readability
+    textNode.innerHTML = combo
+        .split(", ")
+        .map(technique => `<p>${technique}</p>`)
+        .join("");
+
+    // Speak with an English voice, otherwise defaults in other languages will make it incomprehensible.
+    const utterance = new SpeechSynthesisUtterance(combo);
+    utterance.voice = englishVoice;
+    synth.speak(utterance);
 }
 
-
-// LOOP THE COMBO MOVES
+// Loop the combo moves
 const nextCombo = (current, belt, practiceTime) => {
         if (current >= data.combos[belt].length) {
             coachUser("WELL DONE!");
