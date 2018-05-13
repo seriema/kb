@@ -44,7 +44,7 @@ const textNode = document.querySelector("#current-combo");
 
 // SPEECH
 const synth = window.speechSynthesis;
-const englishVoice = synth.getVoices().filter(voice => voice.lang.startsWith("en-") && voice.localService)[0]; // The first English voice that runs locally is enough.
+const englishVoice = synth.getVoices().filter(voice => voice.lang === "en-US" && voice.localService)[0]; // The first English voice that runs locally is enough.
 
 // MAIN LOGIC
 
