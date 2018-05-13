@@ -1,0 +1,15 @@
+html,
+body,
+.training {
+    height: 100%;
+}
+
+.training {
+    display: flex;
+    align-items: center;
+}
+
+.current-combo {
+    font-size: 80pt;
+    margin: auto;
+}
