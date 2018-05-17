@@ -72,24 +72,56 @@ const coachUser = combo => {
     synth.speak(utterance);
 }
 
+// Grab a random sample of 'n' elements from an array
+const sample = (array, n) => {
+    const sample = [];
+    for(let picked = 0; picked < n; picked++) {
+        const randomCombo = array.splice(Math.floor(Math.random() * array.length), 1)[0];
+        sample.push(randomCombo);
+    }
+    return sample;
+}
+
+// Create a random set of combos
+const createRandomWorkout = (numberOfCombos) => {
+    const allCombos = Object.keys(data.combos);
+    const beltCombos = allCombos.map(beltKey => data.combos[beltKey]);
+    const flattened = beltCombos.reduce((previous, current) => previous.concat(current), []);
+    const distinct = flattened.filter((combo, i, arr) => arr.indexOf(combo) === i);
+    const randomCombos = sample(distinct, numberOfCombos);
+    const result = randomCombos;
+
+    return result;
+}
+
+// Pick the combination to workout to
+const pickCombo = (belt) => {
+    if (belt === "random") {
+        return createRandomWorkout(10);
+    }
+
+    return data.combos[belt];
+}
+
 // Loop the combo moves
-const nextCombo = (current, belt, practiceTime) => {
-        if (current >= data.combos[belt].length) {
-            coachUser("WELL DONE!");
+const nextCombo = (current, combos, practiceTime) => {
+    if (current >= combos.length) {
+        coachUser("WELL DONE!");
+    } else {
+        if (current < 0) {
+            coachUser("Get ready!");
+            setTimeout(nextCombo.bind(null, current + 1, combos, practiceTime), 3000);
         } else {
-            if (current < 0) {
-                coachUser("Get ready!");
-                setTimeout(nextCombo.bind(null, current + 1, belt, practiceTime), 3000);
-            } else {
-                const combo = data.combos[belt][current];
-                coachUser(combo);
-                setTimeout(nextCombo.bind(null, current + 1, belt, practiceTime), practiceTime);
-            }
+            const currentCombo = combos[current];
+            coachUser(currentCombo);
+            setTimeout(nextCombo.bind(null, current + 1, combos, practiceTime), practiceTime);
         }
+    }
 }
 
 function startTraining(belt) {
     const practiceTime = parseInt(practiceTimeNode.value, 10) * 1000;
-    nextCombo(-1, belt, practiceTime);
+    const combos = pickCombo(belt);
+    nextCombo(-1, combos, practiceTime);
     waitForUserNode.style.display = "none";
 }
