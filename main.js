@@ -31,6 +31,16 @@ const data = {
             "jab, cross, knee",
             "jab, cross, axe kick",
             "jab, cross, roundhouse"
+        ],
+        green: [
+            "jab, rear body hook, leading head hook",
+            "jab, cross, leading body hook, leading head hook",
+            "jab, leading body hook, rear overhand punch",
+            "jab, leading uppercut, cross",
+            "jab, rear body hook, rear uppercut",
+            "jab, rear spinning back fist, lead spinning back fist",
+            "jab, left skipping side kick, right spinning back kick, left back kick",
+            // "reverse on right guard" // what?
         ]
     }
 };
