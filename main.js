@@ -125,3 +125,12 @@ function startTraining(belt) {
     nextCombo(-1, combos, practiceTime);
     waitForUserNode.style.display = "none";
 }
+
+//
+// PWA / OFFLINE SUPPORT
+// Start the service worker
+if('serviceWorker' in navigator) {
+    navigator.serviceWorker
+             .register('sw.js')
+             .then(function() { console.log("Service Worker Registered"); });
+  }
