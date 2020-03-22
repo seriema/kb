@@ -40,6 +40,25 @@ const data = {
             "jab, body hook, uppercut",
             "jab, rear spinning back fist, leading spinning back fist",
             "jab, skipping side kick, rear spinning back kick, leading back kick"
+        ],
+        vovinam: [
+            "step, jab",
+            "step, cross",
+            "jump, jab",
+            "jump, cross",
+            "step, jab, cross",
+            "jump, jab, cross",
+            "step, leading front kick",
+            "step, leading roundhouse",
+            "step, rear roundhouse",
+            "jump, leading roundhouse",
+            "jump, rear roundhouse",
+        ],
+        advanced: [
+            "jab, uppercut, hook",
+           "hard jab, cross, duck, hook, front kick",
+            "double jab, front kick, roundhouse, cross, jab, cross",
+            "cross, hook, cross, roundhouse, superman punch"
         ]
     }
 };
