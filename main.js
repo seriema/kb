@@ -17,30 +17,29 @@ const data = {
             "jab, uppercut, knee"
         ],
         orange: [
-            "jab, rear hand hook, leading hand uppercut",
-            "leading hand hook, cross, leading hand hook",
+            "jab, hook, uppercut",
+            "hook, cross, hook",
             "jab, cross, change guard, cross",
-            "leading hand uppercut, leading hand hook, cross",
-            "rear hand uppercut, leading hand hook, cross",
-            "jab, leading hand backfist, cross",
-            "jab, cross, leading foot roundhouse",
-            "jab, cross, leading hand hook, back foot roundhouse",
-            "jab, cross, back foot roundhouse, leading knee",
-            "jab, front kick, cross, leading hand hook",
+            "leading uppercut, leading hook, cross",
+            "rear uppercut, leading hook, cross",
+            "jab, backfist, cross",
+            "jab, cross, roundhouse",
+            "jab, cross, hook, roundhouse",
+            "jab, cross, roundhouse, knee",
+            "jab, front kick, cross, hook",
             "jab, cross, sidekick",
             "jab, cross, knee",
             "jab, cross, axe kick",
             "jab, cross, roundhouse"
         ],
         green: [
-            "jab, rear body hook, leading head hook",
-            "jab, cross, leading body hook, leading head hook",
-            "jab, leading body hook, rear overhand punch",
-            "jab, leading uppercut, cross",
-            "jab, rear body hook, rear uppercut",
-            "jab, rear spinning back fist, lead spinning back fist",
-            "jab, left skipping side kick, right spinning back kick, left back kick",
-            // "reverse on right guard" // what?
+            "jab, body hook, head hook",
+            "jab, cross, body hook, head hook",
+            "jab, body hook, overhand punch",
+            "jab, uppercut, cross",
+            "jab, body hook, uppercut",
+            "jab, rear spinning back fist, leading spinning back fist",
+            "jab, skipping side kick, rear spinning back kick, leading back kick"
         ]
     }
 };
