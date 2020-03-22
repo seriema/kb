@@ -1,7 +1,9 @@
+const cacheName = 'kb-v1.1.0';
+
 // Cache necessary files.
 self.addEventListener('install', function (event) {
     event.waitUntil(
-        caches.open('kb-v1').then(function (cache) {
+        caches.open(cacheName).then(function (cache) {
             return cache.addAll([
                 'index.html',
                 'modern-normalize.min.css',
