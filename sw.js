@@ -1,4 +1,4 @@
-const cacheName = 'kb-v1.1.2';
+const cacheName = 'kb-v1.1.3';
 
 // Cache necessary files.
 self.addEventListener('install', function (event) {
@@ -14,6 +14,19 @@ self.addEventListener('install', function (event) {
                 'style.css',
                 'main.js'
             ]);
+        })
+    );
+});
+
+// Clear out old caches
+self.addEventListener('activate', function(event) {
+    event.waitUntil(
+        caches.keys().then(function (keyList) {
+            return Promise.all(keyList.map(function (key) {
+                if (key !== cacheName) {
+                    return caches.delete(key);
+                }
+            }));
         })
     );
 });
