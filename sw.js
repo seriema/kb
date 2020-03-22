@@ -1,7 +1,10 @@
-const cacheName = 'kb-v1.1.1';
+const cacheName = 'kb-v1.1.2';
 
 // Cache necessary files.
 self.addEventListener('install', function (event) {
+    // The promise that skipWaiting() returns can be safely ignored.
+    self.skipWaiting();
+
     event.waitUntil(
         caches.open(cacheName).then(function (cache) {
             return cache.addAll([
